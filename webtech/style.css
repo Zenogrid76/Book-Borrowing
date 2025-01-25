@@ -1,0 +1,144 @@
+
+.mainoutside{
+
+  margin: 10px;
+  padding: 10px;
+  height: auto;
+  width:auto;
+  justify-content:space-between;
+  flex-direction: left;
+  display: inline-flex;
+  background-color: #5E6472;
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #433878 !important;
+}
+
+.outside2{
+
+  height: auto;
+  width:860px;
+  flex-direction: row;
+  
+}
+.leftbanner{
+
+  flex-direction: row;
+  display: inline-flex;
+  margin: 10px;
+  padding: 00px;
+  width:194px;
+  Height: auto;
+  background-color: #B8F2E6;
+  box-shadow: 1px 2px 3px 4px #AED9E0;
+  border-radius: 25px;
+}
+
+.rightbanner{
+
+  flex-direction: row;
+  display: inline-flex;
+  margin: 10px;
+  padding: 20px;
+  width:100px;
+  Height: auto;
+  background-color:#FFE1FF;
+  border-radius: 25px;
+}
+
+
+
+
+.banner1 {
+align-content: center;
+text-align: center;
+width:800px;
+Height: 200px;
+display:inline-block;
+margin: 10px;
+padding: 20px;
+flex-direction: column ;
+background-color: #B8F2E6;
+box-shadow: 1px 2px 3px 4px #AED9E0;
+border-radius: 25px;
+}
+
+.banner12 {
+  align-content: center;
+  text-align: center;
+  width:800px;
+  Height: 200px;
+  display:inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: column ;
+  background-color: #B8F2E6;
+  box-shadow: 1px 2px 3px 4px #AED9E0;
+  border-radius: 25px;
+}
+
+.contents{align-content: center;
+  text-align: center;
+  width:800px;
+  Height: auto;
+  display:inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: row;
+  box-shadow: 1px 2px 3px 4px #AED9E0;
+  background-color: #B8F2E6;
+
+}
+
+.container{
+align-content: center;
+text-align: center;
+width:200px;
+Height: 230px;
+margin: 10px;
+padding: 0px;
+display: inline-flex;
+border-radius: 25px;
+
+
+}
+
+
+.banner2 {
+  align-content: justify;
+  text-align: center;
+  width:800px;
+  Height: 500px;
+  display:inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: column ;
+  background-color: #B8F2E6;
+  box-shadow: 1px 2px 3px 4px #AED9E0;
+  
+  
+}
+
+
+.container2{
+  align-content: left;
+text-align:left;
+width:300px;
+Height: 300px;
+box-shadow: #000000;
+shape-outside: margin-box;
+margin: 40px;
+
+padding: 20px;
+flex-direction: column;
+display: inline-flex;
+background-color: #B8F2E6;
+box-shadow: 1px 2px 3px 4px #AED9E0;
+
+
+
+}
+input{
+margin-left: 5px;
+}
