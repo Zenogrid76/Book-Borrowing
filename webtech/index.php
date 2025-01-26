@@ -21,77 +21,79 @@
     <div class="mainoutside">
 
         <div class="leftbanner">
-            <h3>Used Tokens</h3>
-            <ul>
-            <?php
+        <h3>Used Tokens</h3>
+        <ul>
+        <?php
         foreach ($_COOKIE as $key => $value) {
-            if (str_starts_with($key, "used_token_")) {
-                echo "<li>" . htmlspecialchars($value) . "</li>";
+            if (str_starts_with($key, "token_used_")) { // Correct prefix
+                echo "<li>" . htmlspecialchars(str_replace("token_used_", "", $key)) . "</li>";
             }
         }
         ?>
-            </ul>
+        </ul>
         </div>
 
 
         <div class="outside2">
         <div class="banner1">
+    <?php
+    // Database connection details
+    $host = 'localhost'; 
+    $username = 'root'; 
+    $password = ''; 
+    $dbname = 'book_database'; 
 
-                            <?php
-                            // Database connection details
-                            $host = 'localhost'; // Change this if your database is hosted elsewhere
-                            $username = 'root'; // Update with your DB username
-                            $password = ''; // Update with your DB password
-                            $dbname = 'book_database'; // Name of your database
+    // Create a connection
+    $conn = new mysqli($host, $username, $password, $dbname);
 
-                            // Create a connection
-                            $conn = new mysqli($host, $username, $password, $dbname);
+    // Check the connection
+    if ($conn->connect_error) {
+        die("<p style='color: red;'>Database connection failed: " . $conn->connect_error . "</p>");
+    }
 
-                            // Check the connection
-                            if ($conn->connect_error) {
-                                die("<p style='color: red;'>Database connection failed: " . $conn->connect_error . "</p>");
-                            }
+    // Fetch all available books
+    $sql = "SELECT book_title, isbn_number, quantity, category FROM books";
+    $result = $conn->query($sql);
 
-                            // Fetch all available books
-                            $sql = "SELECT book_title, isbn_number, quantity, category FROM books";
-                            $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        echo "<h2>Available Books</h2>";
+        echo "<div class='scrollable-table'>";
+        echo "<table class='book-table'>";
+        echo "<tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Quantity</th>
+                <th>Category</th>
+              </tr>";
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>{$row['book_title']}</td>
+                    <td>{$row['isbn_number']}</td>
+                    <td>{$row['quantity']}</td>
+                    <td>{$row['category']}</td>
+                  </tr>";
+        }
+        echo "</table>";
+        echo "</div>";
+    } else {
+        echo "<p>No books available in the database.</p>";
+    }
 
-                            if ($result->num_rows > 0) {
-                                echo "<h2>Available Books</h2>";
-                                echo "<table border='1' cellpadding='10' cellspacing='0' style='width: 100%; text-align: left;'>";
-                                echo "<tr>
-                                        <th>Title</th>
-                                        <th>ISBN</th>
-                                        <th>Quantity</th>
-                                        <th>Category</th>
-                                    </tr>";
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>
-                                            <td>{$row['book_title']}</td>
-                                            <td>{$row['isbn_number']}</td>
-                                            <td>{$row['quantity']}</td>
-                                            <td>{$row['category']}</td>
-                                        </tr>";
-                                }
-                                echo "</table>";
-                            } else {
-                                echo "<p>No books available in the database.</p>";
-                            }
+    // Close the connection
+    $conn->close();
+    ?>
+</div>
 
-                            // Close the connection
-                            $conn->close();
-                            ?>
-            </div>
 
-            <div class="banner12">
+            <div class="banner12"> 
     <h2>Manage Book Database</h2>
     
     <?php
     // Database connection details
-    $host = 'localhost'; // Change this if necessary
-    $username = 'root'; // Update with your DB username
-    $password = ''; // Update with your DB password
-    $dbname = 'book_database'; // Name of your database
+    $host = 'localhost'; 
+    $username = 'root'; 
+    $password = ''; 
+    $dbname = 'book_database'; 
 
     // Create a connection
     $conn = new mysqli($host, $username, $password, $dbname);
@@ -114,8 +116,10 @@
     if ($result->num_rows > 0) {
         // Display books in a table with inputs for editing
         echo "<form action='edit_books.php' method='post'>";
+        echo "<div class='scrollable-table'>"; // Wrapper for scrollable area
         echo "<table class='book-table'>";
         echo "<tr>
+        <th>ID</th>
                 <th>Title</th>
                 <th>ISBN</th>
                 <th>Quantity</th>
@@ -124,6 +128,7 @@
               </tr>";
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
+            <td><input type='text' name='ID[{$row['id']}]' value='{$row['id']}'></td>
                     <td><input type='text' name='book_title[{$row['id']}]' value='{$row['book_title']}'></td>
                     <td><input type='text' name='isbn_number[{$row['id']}]' value='{$row['isbn_number']}'></td>
                     <td><input type='number' name='quantity[{$row['id']}]' value='{$row['quantity']}'></td>
@@ -135,6 +140,7 @@
                   </tr>";
         }
         echo "</table>";
+        echo "</div>"; // Close scrollable wrapper
         echo "</form>";
     } else {
         echo "<p>No books available to manage. Please add books to the database.</p>";
@@ -167,6 +173,8 @@
 
 
             <div class="banner2">
+
+                 <h2>ADD BOOKS TO DATABASE <h2>
                     <form action="save_book.php" method="post">
                     <label for="book_title">Book Title:</label>
                     <input type="text" id="book_title" name="book_title" placeholder="Enter book title" required>
@@ -201,16 +209,43 @@
                     <input type="Text" name="studentid" id="stid" placeholder="Student ID"><br>
                     
                     <br>
+
                     <label for="books">Choose a Book: </label>
-                    <select name="books" id="book" >
-                    <option value="Anna_Karenina">Anna Karenina </option>
-                    <option value="Madame_Bovary">Madame Bovary</option>
-                    <option value="War_and_Peace">War and Peace</option>
-                    <option value="The_Great_Gatsby">The Great Gatsby</option>
-                    <option value="Lolita">Lolita</option>
-                    <option value="Middlemarch">Middlemarch</option>
-             
-                    </select>
+<select name="books" id="book">
+    <?php
+    // Database connection details
+    $host = 'localhost'; 
+    $username = 'root'; 
+    $password = ''; 
+    $dbname = 'book_database'; 
+
+    // Create a connection
+    $conn = new mysqli($host, $username, $password, $dbname);
+
+    // Check the connection
+    if ($conn->connect_error) {
+        die("<p style='color: red;'>Database connection failed: " . $conn->connect_error . "</p>");
+    }
+
+    // Fetch all available books
+    $sql = "SELECT id, book_title, quantity FROM books WHERE quantity > 0"; // Only fetch books with quantity > 0
+    $result = $conn->query($sql);
+
+    // Check if any books are available
+    if ($result->num_rows > 0) {
+        // Loop through the books and create options
+        while ($row = $result->fetch_assoc()) {
+            echo "<option value='{$row['book_title']}'>{$row['book_title']}</option>";
+        }
+    } else {
+        echo "<option value=''>No books available</option>";
+    }
+
+    // Close the connection
+    $conn->close();
+    ?>
+</select>
+
                     
                     <br><br>
                     <label for="borrowdate">Borrow Date:</label>
@@ -226,32 +261,31 @@
                     <input type="button" value="Cancel">
 
 
-
-
-                    
-
-        
-
-                    
-
-
-
-
-
-
-
                 </form>
             </div>
 
 
             <div class="container2">
-                <p>Lorem ipsum dolor sit.</p>
+                <h2>AVAILABLE TOKENS </h2>
+                <br>12345 
+                <br>78995
+                <br>64556
+                <br>98761 
+                <br>12346
+                <br>67890
+
+
+
             </div>
 
 
         </div>
-        <div class="leftbanner">
-          <! --<img src="banner.jpg" height=auto width=194 ;>
+        <div class="rightbanner">
+        Book borrowing management is an essential system used by libraries, schools, and other organizations to efficiently manage the lending and returning of books. It involves tracking the availability of books, monitoring who borrows them, ensuring timely returns, and managing overdue items. Effective book borrowing management helps improve inventory control, reduce losses, and enhance user experience by allowing borrowers to easily access and return books. Modern systems often include digital catalogs, reservation features, and automated reminders to streamline the entire process, making it easier for both librarians and readers.
+
+
+
+
     
         </div>
 

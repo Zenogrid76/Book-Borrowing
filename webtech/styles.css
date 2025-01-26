@@ -1,198 +1,171 @@
-
-.mainoutside{
-
-    margin: 10px;
-    padding: 10px;
-    height: auto;
-    width:auto;
-    justify-content:space-between;
-    flex-direction: left;
-    display: inline-flex;
-    background-color: #5E6472;
-    font-family: Poppins;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #433878 !important;
+.mainoutside {
+  margin: 10px;
+  padding: 10px;
+  height: auto;
+  width: 1200px;
+  justify-content: space-between;
+  flex-direction: left;
+  display: inline-flex;
+  background-color: #E0E0E0; /* Light Gray */
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #2A3E5C; /* Dark Blue */
 }
 
-.outside2{
-
-    height: auto;
-    width:auto;
-    flex-direction: row;
-    
-}
-.leftbanner{
-
-    margin: 10px;
-    padding: 00px;
-    text-align: center;
-
-    width:194px; 
-    Height: auto;
-    background-color: #B8F2E6;
-    box-shadow: 1px 2px 3px 4px #AED9E0;
-    border-radius: 25px;
-    
+.outside2 {
+  height: auto;
+  width: auto;
+  flex-direction: row;
 }
 
-.rightbanner{
-
-    flex-direction: row;
-    display: inline-flex;
-    margin: 10px;
-    padding: 20px;
-    width:100px;
-    Height: auto;
-    background-color:#FFE1FF;
-    border-radius: 25px;
+.leftbanner {
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 600px;
+  height: auto;
+  background-color: #A7C7E7; /* Soft Blue */
 }
 
-
-
+.rightbanner {
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 600px;
+  height: auto;
+  background-color: #A7C7E7; /* Soft Blue */
+}
 
 .banner1 {
   align-content: center;
   text-align: center;
-  width:800px;
-  Height: 600px;
-  display:inline-block;
+  width: 800px;
+  height: 400px;
+  display: inline-block;
   margin: 10px;
   padding: 20px;
-  flex-direction: column ;
-  background-color: #B8F2E6;
-  box-shadow: 1px 2px 3px 4px #AED9E0;
-  border-radius: 25px;
+  flex-direction: column;
+  background-color: #A7C7E7; /* Soft Blue */
 }
 
 .banner12 {
-    align-content: center;
-    text-align: center;
-    width:800px;
-    Height: 200px;
-    display:inline-block;
-    margin: 10px;
-    padding: 20px;
-    flex-direction: column ;
-    background-color: #B8F2E6;
-    box-shadow: 1px 2px 3px 4px #AED9E0;
-    border-radius: 25px;
-  }
-
-.contents{align-content: center;
-    text-align: center;
-    width:800px;
-    Height: auto;
-    display:inline-block;
-    margin: 10px;
-    padding: 20px;
-    flex-direction: row;
-    box-shadow: 1px 2px 3px 4px #AED9E0;
-    background-color: #B8F2E6;
-    border-radius: 25px;
-
-
+  align-content: center;
+  text-align: center;
+  width: 800px;
+  height: 400px;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #A7C7E7; /* Soft Blue */
 }
 
-.container{
- align-content: center;
+.contents {
+  align-content: center;
   text-align: center;
-  width:200px;
-  Height: 230px;
+  width: 800px;
+  height: auto;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: row;
+  background-color: #A7C7E7; /* Soft Blue */
+}
+
+.container {
+  align-content: center;
+  text-align: center;
+  width: 200px;
+  height: 230px;
   margin: 10px;
   padding: 0px;
   display: inline-flex;
-  border-radius: 25px;
-  border-radius: 25px;
-
-
-
 }
 
-
 .banner2 {
-    align-content: justify;
-    text-align: center;
-    width:800px;
-    Height: 400px;
-    display:inline-block;
-    margin: 10px;
-    padding: 20px;
-    flex-direction: column ;
-    background-color: #B8F2E6;
-    box-shadow: 1px 2px 3px 4px #AED9E0;
-    border-radius: 25px;
+  align-content: justify;
+  text-align: center;
+  width: 800px;
+  height: 400px;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  flex-direction: column;
+  background-color: #A7C7E7; /* Soft Blue */
+}
 
-  }
-
-  
-.container2{
-    align-content: left;
-  text-align:left;
-  width:300px;
-  Height: 500px;
-  box-shadow: #000000;
-  shape-outside: margin-box;
+.container2 {
+  align-content: left;
+  text-align: left;
+  width: 300px;
+  height: 500px;
   margin: 40px;
-  
   padding: 20px;
   flex-direction: column;
   display: inline-flex;
-  background-color: #B8F2E6;
-  box-shadow: 1px 2px 3px 4px #AED9E0;
-  border-radius: 25px;
-
-  
-  
-
+  background-color: #A7C7E7; /* Soft Blue */
 }
-input{
+
+input {
   margin-left: 5px;
 }
 
-
-
 .book-table {
-  width: 80%; /* Adjust the width as needed */
+  width: 60%; /* Width adjustment if needed */
   margin: 20px auto;
   border-collapse: collapse;
   text-align: left;
 }
 
 .book-table th, .book-table td {
-  padding: 8px 12px;
+  padding: 6px 10px; /* Reduced padding */
   border: 1px solid #ddd;
 }
 
 .book-table th {
-  background-color: #f2f2f2;
+  background-color: #F0F0F0; /* Light Gray */
+  font-size: 13px; /* Optional: Reduced font size for a smaller look */
 }
 
 .book-table input[type='text'], .book-table input[type='number'] {
-  width: 100%;
-  padding: 5px;
+  width: 80%; /* Reduced width of input fields */
+  padding: 4px;
   border: 1px solid #ccc;
   border-radius: 3px;
 }
 
 .book-table button {
-  padding: 5px 10px;
+  padding: 4px 8px; /* Reduced button size */
   margin: 3px;
-  background-color: #4CAF50;
+  background-color: #3C9D65; /* Green for positive actions */
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-size: 13px; /* Optional: Reduced font size for buttons */
 }
 
 .book-table button:hover {
-  background-color: #45a049;
+  background-color: #358F5C; /* Darker Green */
 }
 
 .book-table td button {
-  background-color: #f44336;
+  background-color: #E34A4A; /* Red for negative actions */
 }
 
 .book-table td button:hover {
-  background-color: #da190b;
+  background-color: #D13A3A; /* Darker Red */
+}
+
+/* Add a scrollable wrapper for the book table */
+.scrollable-table {
+  max-height: 300px; /* Set the maximum height to show only 4-5 rows */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Border for the scrollable area */
+  margin: 20px auto; /* Center the table within the container */
+}
+
+/* Ensure the table inside the scrollable div maintains styling */
+.scrollable-table .book-table {
+  width: 100%; /* Ensure full width of the scrollable area */
 }

@@ -5,6 +5,10 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "webtech"
+		"liveServer.settings.multiRootWorkspaceName": "webtech",
+		"lldb.displayFormat": "auto",
+		"lldb.showDisassembly": "auto",
+		"lldb.dereferencePointers": true,
+		"lldb.consoleMode": "commands"
 	}
 }
